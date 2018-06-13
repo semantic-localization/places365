@@ -1,6 +1,5 @@
 # PlacesCNN to predict the scene category, attribute, and class activation map in a single pass
 # by Bolei Zhou, sep 2, 2017
-# last modified date: Dec. 27, 2017, migrating everything to python36 and latest pytorch and torchvision
 
 import torch
 from torch.autograd import Variable as V
@@ -133,7 +132,7 @@ weight_softmax = params[-2].data.numpy()
 weight_softmax[weight_softmax<0] = 0
 
 # load the test image
-img_url = 'http://places2.csail.mit.edu/imgs/12.jpg'
+img_url = 'http://places.csail.mit.edu/demo/6.jpg'
 os.system('wget %s -q -O test.jpg' % img_url)
 img = Image.open('test.jpg')
 input_img = V(tf(img).unsqueeze(0))
